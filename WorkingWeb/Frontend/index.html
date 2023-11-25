@@ -1,0 +1,23 @@
+<html>
+    <header>
+        <title>Test Page</title>
+    </header>
+
+    <body>
+        <div>This is a simple test to get data from a backend</div>
+        <div><span>Last update:</span><span id="time-container"></span></div>
+        <hr>
+        <div>
+            <label for="data-input">Data to send:</label>
+            <input type="text" id="data-input">
+            <button onClick="sendData()">Send Data</button>
+        </div>
+        <div id="sent-data-container"></div>
+        <hr>
+        <div>
+            <button onclick="getUsers()">Get user data</button>
+            <div id="result-container"></div>
+        </div>
+        <script src="/index.js"></script>
+    </body>
+</html>
