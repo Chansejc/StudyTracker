@@ -1,5 +1,4 @@
-import time
-
+import sqlite3 as sql
 # Changing the strings from the time series into usable data
 # Day of Week to numeric
 dow_to_num = {
@@ -27,8 +26,6 @@ mth_to_num = {
     'Dec': 12
 }
 # ^ Changing the strings from the time series into usable data ^
-
-
 time_dict = {
     "DoW": '',
     "Mnth": '',
@@ -68,16 +65,7 @@ def get_stime_iter(time):
 
 # Changing the CTime output into one iterable integer
 # Using this integer to calculate time spent in a single session
-
-
-# Session length output generation
-# End time(to numeric) minus Start time(to numeric)
-
-
-# sesh_length(end_time, start_time) = sesh_length
 # sesh_length.value = "X hour(s) and Y minute(s)"
-
-# This will get the session length in a readable format for input into the database or to display to the user
 # Set this equal to a variable to display the correct time signatures
 def sesh_length(start, end):
     import math
@@ -91,33 +79,6 @@ def sesh_length(start, end):
         total_hours = 24 + total_hours
 
     return {'Hours': total_hours, 'Minutes': total_minutes, 'Seconds': total_seconds}
-
-
-# For now this prints the time signatures that are not 0
-# In the future this will be able to send these signatures to be displayed at end of session
-def send_sesh(start, end):
-    connection = sql.connect('Records.db')
-    cursor = connection.cursor()
-    cursor.execute('''
-            SELECT start_time, end_time
-            FROM {}
-            WHERE username='{}' AND session_length IS NULL
-        '''.format(table, name))
-    query = cursor.fetchone()
-    connection.commit()
-    connection.close()
-    start = get_stime_iter(query[0])
-    end = get_stime_iter(query[1])
-    dic = sesh_length(start, end)
-    sesh_input = ''
-    for i in dic:
-        if dic[i] != 0:
-            sesh_input += "{} {}".format(dic[i], i)
-            if i != 'Seconds':
-                sesh_input += ','
-    print(query)
-    print(sesh_input)
-
 
 '''
 If hours : Session length = X hour(s) and Y minutes
