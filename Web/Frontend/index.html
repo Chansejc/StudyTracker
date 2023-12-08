@@ -1,0 +1,46 @@
+<!-- What does the end of this project look like? -->
+
+<!-- Add the popup text to inform the user of how long their session lasted -->
+<!-- Give the user confirmation that the session has been started -->
+<!-- Add a page for viewing prior data to be viewed or searched by the user -->
+<!-- Filtering and searching could add a different beast to the project that might not be needed -->
+<!-- Possibly add some data analysis to this or call it a day once the data is visible and move on to another project --> 
+<html>
+    <head>
+        <title>Main Page</title>
+    </head>
+    <link rel="stylesheet" href="./styles.css">
+    <body id="body">
+        <div class="PageWrapper">
+           <div id="Title" class="content-header"><h1>Study Time Tracker</h1></div> 
+           <div id="inner-wrapper" class="inner-content-wrapper">
+               
+               <div class="inner-content" id="Start-Session-Display">
+                   <div class="ic-title">
+                       <p>Start Session</p>
+                   </div>
+                   <div>
+                       <div id="input-container">
+                           <input type="text" value="Username" id="Start-Username" onfocus="document.getElementById('Start-Username').value = ''">
+                           <input type="text" value="Topic" id="Start-Topic" onfocus="document.getElementById('Start-Topic').value = ''">
+                       </div>
+                   </div>
+                    <div class="button-container" onclick="sendStartEntry()"><button id="start-button">Start</button></div>
+               </div>
+
+               <div class="inner-content" id="End-Session-Display">
+                   <div class="ic-title">
+                       <p>End Session</p>
+                   </div>
+                   <div>
+                       <div id="input-container">
+                           <input type="text" value="Username" id="End-Username" onfocus="document.getElementById('End-Username').value = ''">
+                       </div>
+                   </div>
+                    <div class="button-container" onclick="sendEndEntry()"><button id="end-button">End</button></div>
+               </div>
+           </div>
+        </div>
+        <script src="./test.js"></script>
+    </body>
+</html>
