@@ -18,10 +18,6 @@ DATABASETables = {
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/')
-def home():
-    return "Ur Mom"
-
 @app.route('/logStart', methods=["POST"])
     # Requests.get_json() we can extract the JSON data that was sent as a JSON dictionary
     # Storing the data from the 'data' key in the JSON dictionary
